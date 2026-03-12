@@ -1,24 +1,92 @@
-# Twitch-User-Recommendations-Using-Neo4j-and-PostgreSQL_202_Project
+# 🎮 Twitch User Recommendations Using Neo4j & PostgreSQL
 
-Team Members-  
-Keertana Kappuram  
-Shweta Nalluri  
-Sreetama Chowdhury  
+> A graph-based user recommendation system that computes **Jaccard and Cosine similarity** scores across a Twitch social network to surface the most relevant user recommendations for any target user.
 
+---
 
-https://github.com/user-attachments/assets/702429d8-9da4-43a1-9b4c-243274487af5
+## 🎬 Demo
 
-Process to run code:
+<video src="https://github.com/user-attachments/assets/702429d8-9da4-43a1-9b4c-243274487af5" controls width="100%"></video>
 
-1. Start by creating a new database called "twitch_recommendations" in PostgreSQL and then, create 'musae_ENGB_target.csv' (table called 'users' in PostgreSQL) and 'musae_ENGB_features.json' (table called 'user_features' in PostgreSQL) by running queries in 'postgresql_table_creation.sql' file.
-2. Load data into the tables by running the 'load_json_data.py' code in Visual Code/preferred Python IDE. (change the database connection parameters according to your PostgreSQL credentials and make sure the datasets are in the same location as your python file)
-3. Steps to be followed in Neo4j:  
-   a) Create a new project.    
-   b) Create a Local DBMS for this project by clicking on the 'Add' dropdown next to the project name and set a name and password to your DBMS. Remember to use this same password while connecting to your Neo4j database through Python later in this project.  
-   c) Click on the Start button.    
-   d) Hover your cursor on the DBMS name. Click on the three dots next to the Open button. In the given option, click on Open folder and then click on import. This will open a folder. Copy and paste the 'musae_ENGB_edges.csv', 'musae_ENGB_target.csv' and 'musae_ENGB_features.json'.     
-   e) Click on the name of your DBMS. This will open a right bar. You see three options Details, Plugins, Upgrade. Click on Plugins. Click on Graph Data Science Library and click on install.  
-   f) Hover your cursor on the DBMS name. Click on the Open button to open your Neo4j Browser.  
-   g) In the browser run the queries mentioned in the cypher file called 'neo4j.cypher'.
-4. Make sure to import all dependencies mentioned in the 'requirments.txt' file.
-5. Finally, run the 'scoring.py' file to get the final results. (Make sure to change the credentials required to connect to PostgreSQL and Neo4j in the python code.)
+---
+
+## 🎯 Problem
+
+Recommending relevant users on a social platform like Twitch requires understanding both shared interests and network relationships. This project combines a **relational database (PostgreSQL)** for structured user data with a **graph database (Neo4j)** to model social connections — computing similarity scores to recommend the most relevant users to any target user.
+
+---
+
+## 📦 Dataset
+
+This project uses the [Twitch Social Network Dataset (MUSAE)](https://snap.stanford.edu/data/twitch-social-networks.html) from Stanford SNAP — a real-world graph dataset of Twitch user connections and features across different language communities.
+---
+
+## 🔍 Approach
+
+### 1. Data Ingestion
+- Loaded Twitch user features (JSON) and edge relationships (CSV) into both PostgreSQL and Neo4j
+- Created structured tables in PostgreSQL for user metadata and features
+- Imported graph edges and nodes into Neo4j for relationship traversal
+
+### 2. Similarity Scoring
+- **Jaccard Similarity** — measures overlap in shared game/category preferences between users
+- **Cosine Similarity** — measures directional alignment of user feature vectors
+- Each target user receives a similarity score against every other user in the network
+
+### 3. Recommendation Generation
+- Users with the highest combined similarity scores are surfaced as top recommendations
+- Graph Data Science (GDS) library in Neo4j used for efficient graph-based computation
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Tools |
+|----------|-------|
+| Graph Database | Neo4j, Cypher, Graph Data Science Library |
+| Relational Database | PostgreSQL |
+| Data Processing | Python, Pandas |
+| Similarity Metrics | Jaccard Similarity, Cosine Similarity |
+
+---
+
+## 📁 Repository Structure
+
+```
+├── scoring.py                        # Main similarity scoring and recommendation logic
+├── load_json_data.py                 # Loads JSON feature data into PostgreSQL
+├── postgresql_table_creation.sql     # SQL schema and table setup
+├── neo4j.cypher                      # Cypher queries for Neo4j graph setup and GDS
+├── musae_ENGB_edges.csv              # Twitch user social graph edges
+├── musae_ENGB_features.json          # Twitch user feature vectors
+├── musae_ENGB_target.csv             # User target labels
+├── requirements.txt                  # Python dependencies
+├── 202 - Final Report.pdf            # Full project report
+└── README.md
+```
+
+---
+
+## 🚀 How to Run
+
+### Prerequisites
+- PostgreSQL installed and running
+- Neo4j Desktop installed with the Graph Data Science (GDS) plugin
+
+### Step 1 — PostgreSQL Setup
+1. Create a new database called `twitch_recommendations` in PostgreSQL
+2. Run `postgresql_table_creation.sql` to create the `users` and `user_features` tables
+3. Run `load_json_data.py` to load the dataset into PostgreSQL (update your DB credentials in the script)
+
+### Step 2 — Neo4j Setup
+1. Open Neo4j Desktop and create a new project
+2. Add a Local DBMS, set a name and password
+3. Open the DBMS import folder and copy in: `musae_ENGB_edges.csv`, `musae_ENGB_target.csv`, `musae_ENGB_features.json`
+4. In the Plugins tab, install the **Graph Data Science Library**
+5. Open Neo4j Browser and run all queries in `neo4j.cypher`
+
+### Step 3 — Run the Recommender
+```bash
+pip install -r requirements.txt
+python scoring.py   # Update PostgreSQL and Neo4j credentials before running
+```
