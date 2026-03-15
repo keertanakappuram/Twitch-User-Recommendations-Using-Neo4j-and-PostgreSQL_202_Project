@@ -1,6 +1,6 @@
 # 🎮 Twitch User Recommendation — ML, Neo4j & PostgreSQL
 
-> A full-stack recommendation system combining **graph databases (Neo4j + PostgreSQL)**, **ML-based link prediction (XGBoost AUC-ROC 0.97, GraphSAGE 0.86)**, **real-time Kafka event streaming**, and **Airflow batch orchestration** - built on the Twitch social network graph to surface personalized user recommendations at scale.
+> A full-stack recommendation system combining **graph databases (Neo4j + PostgreSQL)**, **ML-based link prediction (Logistic Regression 0.94, XGBoost AUC-ROC 0.97, GraphSAGE 0.86)**, **real-time Kafka event streaming**, and **Airflow batch orchestration** - built on the Twitch social network graph to surface personalized user recommendations at scale.
 
 ---
 
