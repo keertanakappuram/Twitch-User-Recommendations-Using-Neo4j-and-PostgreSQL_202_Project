@@ -76,7 +76,7 @@ Reframing recommendation as a supervised **link prediction** problem — predict
 
 Evaluated on 2,000 held-out user pairs (50% positive edges, 50% random non-edges).
 
-![ROC and PR Curves](roc_pr_curves.png)
+![ROC and PR Curves](results/roc_pr_curves.png)
 
 ### 🔑 Key Findings
 
@@ -97,7 +97,7 @@ Evaluated on 2,000 held-out user pairs (50% positive edges, 50% random non-edges
 
 Alpha sweep across 11 values revealed pure SVD on graph structure outperforms all content-feature blends — Hit Rate@10 drops 16x from alpha=0.0 to alpha=1.0, confirming graph topology is more predictive than user feature similarity on this dataset.
 
-![Metrics Heatmap](metrics_heatmap.png)
+![Metrics Heatmap](results/metrics_heatmap.png)
 
 ---
 
