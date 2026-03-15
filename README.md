@@ -62,7 +62,7 @@ The system operates at two layers:
 
 ## 📦 Dataset
 
-This project uses the [Twitch Social Network Dataset (MUSAE)](https://snap.stanford.edu/data/twitch-social-networks.html) from Stanford SNAP — a real-world graph dataset of Twitch user connections and features across different language communities.
+**This project uses the **[Twitch Social Network Dataset (MUSAE)](https://snap.stanford.edu/data/twitch-social-networks.html)** from Stanford SNAP - a real-world graph dataset of Twitch user connections and features across different language communities.**
 ---
 
 ## 📊 Results
