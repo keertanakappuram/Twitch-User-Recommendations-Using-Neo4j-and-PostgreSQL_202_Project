@@ -1,10 +1,10 @@
-# 🎮 Twitch User Recommendation — ML, Neo4j & PostgreSQL
+# Twitch User Recommendation - ML, Neo4j & PostgreSQL
 
 > A full-stack recommendation system combining **graph databases (Neo4j + PostgreSQL)**, **ML-based link prediction (Logistic Regression 0.94, XGBoost AUC-ROC 0.97, GraphSAGE 0.86)**, **real-time Kafka event streaming**, and **Airflow batch orchestration** - built on the Twitch social network graph to surface personalized user recommendations at scale.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────┐
@@ -50,7 +50,7 @@
 
 ---
 
-## 🎯 Problem
+## Problem
 
 Recommending relevant users on a social platform like Twitch requires understanding both shared interests and network relationships. This project combines a **relational database (PostgreSQL)** for structured user data with a **graph database (Neo4j)** to model social connections.
 
@@ -60,12 +60,12 @@ The system operates at two layers:
 
 ---
 
-## 📦 Dataset
+## Dataset
 This project uses the **[Twitch Social Network Dataset (MUSAE)](https://snap.stanford.edu/data/twitch-social-networks.html)** from Stanford SNAP - a real world graph dataset of Twitch user connections and features across different language communities.
 
 ---
 
-## 📊 Results
+## Results
 
 ### Link Prediction (ML Models)
 
@@ -83,7 +83,7 @@ Evaluated on 2,000 held-out user pairs (50% positive edges, 50% random non-edges
 
 ![ROC and PR Curves](results/roc_pr_curves.png)
 
-### 🔑 Key Findings
+### Key Findings
 
 **XGBoost (AUC-ROC 0.9711)** correctly ranks a real connection above a random non-connection 97% of the time — strong performance for link prediction on a real-world social graph.
 
@@ -106,7 +106,7 @@ Alpha sweep across 11 values revealed pure SVD on graph structure outperforms al
 
 ---
 
-## 🔍 Approach
+## Approach
 
 ### Similarity Metrics
 - **Jaccard Similarity** — measures overlap in shared game/category preferences between users
@@ -124,7 +124,7 @@ Alpha sweep across 11 values revealed pure SVD on graph structure outperforms al
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Tools |
 |----------|-------|
@@ -138,7 +138,7 @@ Alpha sweep across 11 values revealed pure SVD on graph structure outperforms al
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ├── kafka/
@@ -166,7 +166,7 @@ Alpha sweep across 11 values revealed pure SVD on graph structure outperforms al
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Prerequisites
 - Docker Desktop installed and running
